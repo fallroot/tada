@@ -98,6 +98,20 @@
             return;
         }
 
+        var src = element.getAttribute(settings.attribute);
+
+        var tagName = element.tagName.toLowerCase();
+
+        if (tagName == 'img') {
+            if (element.getAttribute('src') == src) {
+                return;
+            }
+        } else {
+            if (element.style.backgroundImage == 'url(' + src + ')') {
+                return;
+            }
+        }
+
         elements.push(element);
     }
 
