@@ -28,14 +28,6 @@
 
     var throttledRun;
 
-    function addEvent(element, type, listener) {
-        if (element.addEventListener) {
-            element.addEventListener(type, listener, false);
-        } else {
-            element.attachEvent('on' + type, listener);
-        }
-    }
-
     function init() {
         initialized = true;
 
@@ -58,8 +50,8 @@
     }
 
     function setViewport() {
-        viewportHeight = innerHeight || document.documentElement.clientHeight;
-        viewportWidth  = innerWidth  || document.documentElement.clientWidth;
+        viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        viewportWidth  = window.innerWidth  || document.documentElement.clientWidth;
 
         setThreshold();
     };
@@ -110,7 +102,7 @@
     }
 
     function valid(element) {
-        if (getComputedStyle(element).display == 'none') {
+        if (getStyle(element).display == 'none') {
             return false;
         }
 
@@ -168,6 +160,18 @@
 
             timer = setTimeout(method, delay);
         };
+    }
+
+    function addEvent(element, type, listener) {
+        if (element.addEventListener) {
+            element.addEventListener(type, listener, false);
+        } else {
+            element.attachEvent('on' + type, listener);
+        }
+    }
+
+    function getStyle(element) {
+        return window.getComputedStyle ? getComputedStyle(element) : element.currentStyle;
     }
 
     window.Tada = {
