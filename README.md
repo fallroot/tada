@@ -1,11 +1,11 @@
 # TADA
 
-Lightweight, no dependency library for lazy image load. jQuery plugin is also provided.
+Lightweight, no dependency library for lazy image load.
 
 ## Features
 
 - Duplicate element check
-- Throttled event handler
+- Debounced event handler
 - Percentage threshold
 
 ## Usage
@@ -30,13 +30,15 @@ img.setAttribute('data-src', 'original.png');
 
 Tada.add(img);
 
-/* jQuery */
+/* In jQuery */
+$.fn.tada = function() {
+    return this.each(function() {
+        Tada.add(this);
+    });
+};
+
 $('img').tada();
 ```
-
-### Note
-
-CSS selector of no dependency version must be [CSS 2.1](http://www.w3.org/TR/CSS21/) selectors in Internet Explorer 8.
 
 ### Settings
 
@@ -50,10 +52,9 @@ Tada.setup({
     callback: function(element) {
         console.log(element);
     }
-}
 });
 
-$('img').tada();
+Tada.add(element);
 ```
 
 ### Options
@@ -67,4 +68,4 @@ callback | `function(element) {}` | | callback after image loaded.
 
 ## Browser compatibility
 
-Internet Explorer 8+ and other major browsers are supported.
+Internet Explorer 9+ and other major browsers are supported.
