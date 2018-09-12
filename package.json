@@ -1,12 +1,10 @@
 {
   "name": "@fallroot/tada",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Lightweight, no dependency library for lazy image load.",
   "author": "CK Moon <fallroot@gmail.com>",
   "scripts": {
-    "build": "webpack -p --config ./src/webpack.config.js",
-    "test": "karma start --single-run --no-auto-watch",
-    "coverage": "karma start --single-run --no-auto-watch --coverage"
+    "build": "webpack -p --config ./src/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -15,28 +13,26 @@
   "bugs": {
     "url": "https://github.com/fallroot/tada/issues"
   },
-  "keywords": ["lazy", "load"],
+  "keywords": [
+    "lazy",
+    "load",
+    "intersectionobserver"
+  ],
   "devDependencies": {
-    "babel-core": "^6.7.6",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-add-module-exports": "^0.1.2",
-    "babel-preset-es2015": "^6.6.0",
-    "chai": "3.5.0",
-    "istanbul-instrumenter-loader": "0.2.0",
-    "karma": "0.13.22",
-    "karma-chai": "0.1.0",
-    "karma-chrome-launcher": "0.2.3",
-    "karma-coverage": "0.5.5",
-    "karma-firefox-launcher": "0.1.7",
-    "karma-html2js-preprocessor": "0.1.0",
-    "karma-mocha": "0.2.2",
-    "karma-sinon": "1.0.4",
-    "karma-sourcemap-loader": "0.3.7",
-    "karma-spec-reporter": "0.0.26",
-    "karma-webpack": "1.7.0",
-    "mocha": "2.4.5",
-    "sinon": "1.17.3",
-    "webpack": "1.13.0"
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "standard": "12.0.1",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "standard": {
+    "env": {
+      "browser": true
+    },
+    "ignore": [
+      "/build/"
+    ]
+  }
 }

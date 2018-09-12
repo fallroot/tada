@@ -1,18 +1,23 @@
+const path = require('path')
+
 module.exports = {
-    entry: './src/main.js',
-    output: {
-        filename: 'tada.js',
-        library: 'Tada',
-        libraryTarget: 'umd',
-        path: './build'
-    },
-    module: {
-        loaders: [
-            {
-                exclude: ['node_modules', 'test'],
-                loader: 'babel',
-                test: /\.js$/
-            }
-        ]
-    }
-};
+  entry: path.resolve(__dirname, './index.js'),
+  output: {
+    filename: 'tada.js',
+    library: 'Tada',
+    libraryTarget: 'umd',
+    path: path.resolve(__dirname, '../build')
+  },
+  module: {
+    rules: [
+      {
+        exclude: [
+          'node_modules',
+          path.resolve(__dirname, '../tests')
+        ],
+        test: /\.js$/,
+        use: 'babel-loader'
+      }
+    ]
+  }
+}

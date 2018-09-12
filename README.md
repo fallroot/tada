@@ -4,6 +4,7 @@ Lightweight, no dependency library for lazy image load.
 
 ## Features
 
+- Uses IntersectionObserver API
 - Duplicate element check
 - Debounced event handler
 - Percentage threshold
@@ -21,23 +22,23 @@ If that attribute is used in non `<img>` tag, image will be background image.
 
 ```javascript
 /* CSS selector */
-Tada.add('ul img');
+Tada.add('ul img')
 
 /* HTML element */
-var img = document.createElement('img');
+var img = document.createElement('img')
 img.setAttribute('src', 'placeholder.png')
-img.setAttribute('data-src', 'original.png');
+img.setAttribute('data-src', 'original.png')
 
-Tada.add(img);
+Tada.add(img)
 
 /* In jQuery */
-$.fn.tada = function() {
-    return this.each(function() {
-        Tada.add(this);
-    });
-};
+$.fn.tada = function () {
+  return this.each(function () {
+    Tada.add(this)
+  })
+}
 
-$('img').tada();
+$('img').tada()
 ```
 
 ### Settings
@@ -46,15 +47,15 @@ If you want to change default settings, call `Tada.setup` method before using `T
 
 ```javascript
 Tada.setup({
-    attribute: 'data-src',
-    delay: 50,
-    threshold: '20%',
-    callback: function(element) {
-        console.log(element);
-    }
-});
+  attribute: 'data-src',
+  delay: 50,
+  threshold: '20%',
+  callback: function (element) {
+    console.log(element)
+  }
+})
 
-Tada.add(element);
+Tada.add(element)
 ```
 
 ### Options
