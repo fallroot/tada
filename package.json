@@ -1,8 +1,9 @@
 {
   "name": "@fallroot/tada",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Lightweight, no dependency library for lazy image load.",
   "author": "CK Moon <fallroot@gmail.com>",
+  "main": "build/tada.js",
   "scripts": {
     "build": "webpack -p --config ./src/webpack.config.js"
   },
