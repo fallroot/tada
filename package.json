@@ -1,6 +1,6 @@
 {
   "name": "@fallroot/tada",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Lightweight, no dependency library for lazy image load.",
   "author": "CK Moon <fallroot@gmail.com>",
   "main": "build/tada.js",
