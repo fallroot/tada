@@ -9,7 +9,7 @@ const tada = {
       delay: 50,
       threshold: '20%'
     }
-    this.config = Object.assign({}, defaults, config)
+    this.config = { ...defaults, config }
     this.useIntersectionObserver = detect()
 
     if (this.useIntersectionObserver) {
